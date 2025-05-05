@@ -1,18 +1,23 @@
 import { createBrowserRouter } from "react-router";
-import Home from "../Layouts/Home/Home";
+import HomeLayout from "./HomeLayout";
+import Home from "../Pages/Home";
+import CategoryNews from "../Pages/CategoryNews";
 
 const router = createBrowserRouter([
     {
         path: '/',
-        Component: Home
-    },
-    {
-        path: '/auth',
-        element: <p>Firebase authentication</p>
-    },
-    {
-        path: '/news',
-        element: <p>news portal</p>
+        Component: HomeLayout,
+        children:[
+            {
+                index: true,
+                path: '/',
+                Component: Home
+            },
+            {
+                path: '/category/:id',
+                Component: CategoryNews
+            }
+        ]
     },
     {
         path: '/*',
