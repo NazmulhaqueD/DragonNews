@@ -1,9 +1,11 @@
 import { FaEye, FaStar } from "react-icons/fa";
+import { NavLink } from "react-router";
 
 const NewsCard = ({ news }) => {
   if (!news) return null;
 
   const {
+    id,
     title,
     author,
     thumbnail_url,
@@ -30,7 +32,7 @@ const NewsCard = ({ news }) => {
         <p className="text-sm text-gray-700 mt-4">
           {details.length > 250 ? details.slice(0, 250) + "..." : details}
         </p>
-        <button className="text-orange-500 font-semibold mt-2">Read More</button>
+        <NavLink to={`/news-details/${id}`} className="text-orange-500 font-semibold hover:underline cursor-pointer mt-2">Read More</NavLink>
       </div>
 
       <div className="flex justify-between items-center text-sm px-4 py-3 border-t mt-4">

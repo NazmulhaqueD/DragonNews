@@ -5,6 +5,8 @@ import CategoryNews from "../Pages/CategoryNews";
 import AuthLayout from "./AuthLayout";
 import Login from "../Pages/Login";
 import Register from "../Pages/Register";
+import NewsDetails from "../Pages/NewsDetails";
+import PrivateRoute from "../PrivateRout/PrivateRoute";
 
 const router = createBrowserRouter([
     {
@@ -24,10 +26,6 @@ const router = createBrowserRouter([
         ]
     },
     {
-        path: '/*',
-        element: <p>error</p>
-    },
-    {
         path: '/auth',
         Component: AuthLayout,
         children: [
@@ -40,7 +38,17 @@ const router = createBrowserRouter([
                 Component: Register
             }
         ]
-    }
+    },
+    {
+        path: '/news-details/:id',
+        loader: ()=>fetch('/news.json'),
+        element: <PrivateRoute><NewsDetails></NewsDetails></PrivateRoute>
+    },
+    {
+        path: '/*',
+        element: <p>error</p>
+    },
+
 ])
 
 export default router;
