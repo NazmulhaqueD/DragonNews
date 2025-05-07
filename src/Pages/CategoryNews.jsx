@@ -6,10 +6,8 @@ import NewsCard from '../components/HomeLayout/news/NewsCard';
 const CategoryNews = () => {
 
     const [categoryNews, setCategoryNews] = useState([]);
-    console.log(categoryNews)
     const { id } = useParams();
     const data = useLoaderData();
-    console.log(id)
 
     useEffect(() => {
         if (id == '0') {
@@ -23,7 +21,6 @@ const CategoryNews = () => {
         else {
             const filteredNews = data.filter(news => news.category_id == id)
             setCategoryNews(filteredNews)
-            console.log(filteredNews)
         }
 
     }, [data, id])

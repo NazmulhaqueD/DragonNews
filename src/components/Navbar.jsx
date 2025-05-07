@@ -7,6 +7,7 @@ import { useContext } from 'react';
 const Navbar = () => {
 
     const { user, logOut } = useContext(AuthContext);
+    console.log(user);
 
     const handleSignOut = () => {
         logOut().then(()=>{
@@ -26,7 +27,10 @@ const Navbar = () => {
                 <NavLink to='/'>Career</NavLink>
             </section>
             <section className='flex items-center gap-6'>
-                <img src={userImg} alt="" />
+                {
+                    user?.photoURL? <img className='w-12 h-12 rounded-full' src={user.photoURL} alt="" /> : <img src={userImg} alt="" />
+
+                }
 
                 {
                     user ?
