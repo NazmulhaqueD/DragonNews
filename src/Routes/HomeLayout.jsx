@@ -7,10 +7,13 @@ import LeftAside from '../components/HomeLayout/LeftAside';
 import RightAside from '../components/HomeLayout/RightAside';
 import Loader from '../components/Loader';
 
-const HomeLayout = () => {
+const HomeLayout = () => { 
     const { state } = useNavigation();
     return (
         <div>
+           {
+             import.meta.env.VITE_name
+           }
             <header className='py-6 px-4 sm:max-w-11/12 mx-auto'>
                 <Header></Header>
                 <LatestTitle></LatestTitle>
